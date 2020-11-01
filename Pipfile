@@ -9,6 +9,8 @@ verify_ssl = true
 django = "~=3.1.2"
 gunicorn = "*"
 whitenoise = "*"
+psycopg2-binary = "*"
+environs = {extras = ["django"], version = "*"}
 
 [requires]
 python_version = "3.9"

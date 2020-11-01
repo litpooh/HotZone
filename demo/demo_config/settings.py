@@ -9,6 +9,10 @@ https://docs.djangoproject.com/en/3.1/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.1/ref/settings/
 """
+from environs import Env
+
+env = Env()
+env.read_env()
 
 from pathlib import Path
 
@@ -25,7 +29,7 @@ SECRET_KEY = 'tpy7z5u9+c3b$pt_6pg=&arlf^3q%w&5n5q0(a$f*+@^n-#54l'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['lit-savannah-24385.herokuapp.com', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['lit-savannah-24385.herokuapp.com', 'localhost', '127.0.0.1', '0.0.0.0']
 
 
 # Application definition
@@ -77,10 +81,7 @@ WSGI_APPLICATION = 'demo_config.wsgi.application'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': env.dj_db_url('DATABASE_URL')
 }
 
 
