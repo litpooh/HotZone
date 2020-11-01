@@ -25,7 +25,7 @@ def find(request):
         return render(request, 'failure.html')
 
 def save(request):
-    if ('Save it to HotZone' in request.GET):
+    if ('save' in request.GET):
         for record in SearchResult.objects.all():
             target = Location(nameZH=str(record.nameZH), nameEN=str(record.nameEN), addressZH=str(record.addressZH), addressEN=str(record.addressEN), x=int(record.x), y=int(record.y))
             target.save()
