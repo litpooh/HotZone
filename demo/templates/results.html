@@ -1,0 +1,18 @@
+<h1>Results<h1>
+
+<form action="{%url 'save' %}" method="get">
+  <ul>
+    {% for location in response %}
+     <li>
+       Name (Chinese): {{ location.nameZH }}
+       <p>Name (English): {{ location.nameEN }}</p>
+       <p>Address (Chinese): {{ location.addressZH }}</p>
+       <p>Address (English): {{ location.addressEN }}</p>
+       <p>X-coordinate of HK1980 Grid: {{ location.x }}</p>
+       <p>Y-coordinate of HK1980 Grid: {{ location.y }}</p>
+     </li>
+    {% endfor %}
+  </ul>
+  <p><input type="submit" value="Save it to HotZone" name="saveit"></p>
+  <p><input type="submit" value="Return to Find" name="goback"></p>
+</form>
