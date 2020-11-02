@@ -6,6 +6,9 @@ import requests
 import json
 
 # Create your views here.
+class ListAll(ListView):
+    model = Location
+    template_name = 'listall.html'
 
 class SearchingLocation(TemplateView):
     template_name = "find_location.html"

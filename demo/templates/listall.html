@@ -1,0 +1,17 @@
+<h1>Locations saved in HotZone database</h1>
+
+<form action="{%url 'find' %}" method="get">
+  <ul>
+    {% for location in location_list %}
+      <li>
+        Name (Chinese): {{ location.nameZH }}
+        <p>Name (English): {{ location.nameEN }}</p>
+        <p>Address (Chinese): {{ location.addressZH }}</p>
+        <p>Address (English): {{ location.addressEN }}</p>
+        <p>X-coordinate of HK1980 Grid: {{ location.x }}</p>
+        <p>Y-coordinate of HK1980 Grid: {{ location.y }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  <p><input type="submit" value="Find and add a location" name="find"></p>
+</form>
